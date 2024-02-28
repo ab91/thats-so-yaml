@@ -5,7 +5,7 @@ import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/
 class OutputPanel extends Component {
 
   render() {
-    const codeString = `
+    var codeString = `
     apiVersion: v1alpha
     kind: imagerunner
     sauce:
