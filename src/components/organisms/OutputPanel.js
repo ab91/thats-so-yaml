@@ -28,7 +28,7 @@ class OutputPanel extends Component {
 
     return (
       <div className="output-panel">
-        <div className="output-panel__element">
+        <div className="output-panel__code-block">
           <SyntaxHighlighter language="javascript" style={tomorrowNightEighties}>
             {codeString}
           </SyntaxHighlighter>
