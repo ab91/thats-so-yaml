@@ -1,0 +1,60 @@
+* {
+    border: 1px solid black;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    h1,
+    h2,
+    h3 {
+        font-family: 'DM Mono';
+    }
+
+    .panel-container {
+        display: flex;
+        flex-direction: row;
+        max-width: 1440px;
+
+        >div {
+            flex: 1
+        }
+
+        .input-panel {
+            .input-panel-text {
+                font-family: Arial, Helvetica, sans-serif;
+
+                &__title {
+                    margin-bottom: 0;
+                }
+
+                &__subtitle {
+                    margin-top: 0;
+
+                    font-size: 16px;
+                    font-style: italic;
+                    font-weight: normal;
+
+                    color: grey;
+                }
+
+                &__description {
+                    font-weight: normal;
+                }
+            }
+
+        }
+
+        .output-panel {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            &__element {
+                width: 90%
+            }
+        }
+    }
+}
