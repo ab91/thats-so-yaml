@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import InputMolecule from "../molecules/InputMolecule";
 
 class InputPanel extends Component {
 
@@ -10,6 +11,9 @@ class InputPanel extends Component {
             <h1 className="input-panel-text__title">That’s SO YAML 👁🔮</h1>
             <h2 className="input-panel-text__subtitle">Sauce Orchestrate YAML Config Generator</h2>
             <h3 className="input-panel-text__description">Sauce Orchestrate tests are kicked off via CLI tool <a target="_blank" href="https://docs.saucelabs.com/dev/cli/saucectl/" rel="noreferrer">saucectl</a>. saucectl commands can be executed manually or automatically by your CI/CD system, and references a <a target="_blank" href="https://docs.saucelabs.com/orchestrate/saucectl-configuration/" rel="noreferrer">YAML file</a> in your repo which instructs Sauce Labs infrastructure how to run your tests. Use this app to interactively create a custom YAML for your test suite.</h3>
+          </div>
+          <div className="input-data-container">
+            <InputMolecule />
           </div>
         </div>
       </div>
