@@ -1,9 +1,9 @@
-import React from "react";
+import React, { Component } from "react";
 
 import InputPanel from "./components/organisms/InputPanel";
 import OutputPanel from "./components/organisms/OutputPanel";
 
-class App extends React.Component {
+class App extends Component {
   constructor(props) {
     super(props);
 
@@ -31,8 +31,8 @@ class App extends React.Component {
   };
 
   render() {
-    const { 
-      regionOption, 
+    const {
+      regionOption,
       ccyData,
       tunnelNameData,
       tunnelOwnerData,
