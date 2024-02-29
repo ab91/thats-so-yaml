@@ -20,7 +20,7 @@ const InputMolecule = (props) => {
     return (
         <div className="input-container input-border-gradient">
             <p className="input__prompt">{props.prompt}</p>
-            <p className="input__detail">{props.required ? (<span style={{ color: 'red' }}>required</span>) : ("optional")} / <a target="_blank" href={props.documentation} rel="noreferrer">docs</a></p>
+            <p className="input__detail">{props.required ? "required" : "optional"} / <a target="_blank" href={props.documentation} rel="noreferrer">docs</a></p>
             <p className="input__location">[{props.topLevel}
                 {props.secondLevel && <span> → {props.secondLevel}</span>}
                 {props.thirdLevel && <span> → {props.thirdLevel}</span>}]
