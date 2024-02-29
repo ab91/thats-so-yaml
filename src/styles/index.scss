@@ -75,13 +75,15 @@ body {
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
+                justify-content: space-around;
 
                 /*border: 1px solid black;*/
 
                 .input-container {
                     flex: 1 1 50%;
                     padding: 15px;
-                    max-width: 45%;
+                    max-width: 40%;
+                    margin-bottom: 10px;
 
                     border: 1px solid black;
 
@@ -112,6 +114,16 @@ body {
                         }
 
                         &__data {}
+
+                        &__radio {
+                            display: flex;
+                            flex-direction: column;
+
+                            label {
+                                font-family: "DM Mono";
+                                font-size: 16px;
+                            }
+                        }
 
                         &__status {
                             margin-top: 10px;

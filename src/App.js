@@ -8,30 +8,36 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      regionData: '',
+      regionOption: 'option1',
       ccyData: '',
+      tunnelName: ''
     };
   }
 
-  handleFormChange = (newData) => {
+  handleRadioChange = (event) => {
     this.setState({
-      regionData: newData,
+      regionOption: event.target.value,
     });
   };
 
-  render() {
-    const { regionData, ccyData } = this.state;
+  handleFormChange = (newData) => {
+    this.setState({
+      ccyData: newData,
+    });
+  };
 
+
+  render() {
     return (
       <div className="panel-container">
         <InputPanel
-          regionData={regionData}
-          ccyData={ccyData}
-          onFormChange={this.handleFormChange}
+          regionOption={this.state.regionOption}
+          handleRadioChange={this.handleRadioChange}
+          handleFormChange={this.handleFormChange}
         />
         <OutputPanel
-          regionData={regionData}
-          ccyData={ccyData}
+          regionOption={this.state.regionOption}
+          ccyData={this.state.ccyData}
         />
       </div>
     );

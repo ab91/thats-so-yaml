@@ -8,46 +8,46 @@ class OutputPanel extends Component {
 
   render() {
 
-    const { regionData, ccyData } = this.props;
+    const { regionOption, ccyData } = this.props;
 
     var yamlString =
       `
-      apiVersion: v1alpha
-      kind: imagerunner
-      sauce:
-        region: ${regionData}
-        concurrency: ${ccyData}
-        tunnel:
-          name:
-          owner:
-      suites:
-        - *name:
-          *workload:
-          resourceProfile:
-          *image:
-          imagePullAuth:
-            user:
-            token:
-          *entrypoint:
-          files: 
-            - src:
-            - dst:
-          env:
-            KEY:
-      artifacts:
+  apiVersion: v1alpha
+  kind: imagerunner
+  sauce:
+    region: ${(regionOption == 'option1') ? 'US-West' : 'EU-Central'}
+    concurrency: ${ccyData}
+    tunnel:
+      name:
+      owner:
+  suites:
+    - name:
+      workload:
+      resourceProfile:
+      *image:
+      imagePullAuth:
+        user:
+        token:
+      *entrypoint:
+      files: 
+        - src:
+        - dst:
+      env:
+        KEY:
+  artifacts:
+    -
+    cleanup: 
+    download:
+      when:
+      match:
         -
-        cleanup: 
-        download:
-          when:
-          match:
-            -
-          directory:
-      reporters:
-        json:
-          enabled:
-          filename:
-          webhookURL:
-      ` ;
+      directory:
+  reporters:
+    json:
+      enabled:
+      filename:
+      webhookURL:
+  ` ;
 
     return (
       <div className="output-panel">

@@ -3,23 +3,79 @@ import InputMolecule from "../molecules/InputMolecule";
 
 /* Can be refactored to functional component */
 
-const Region = {
+const SauceRegion = {
   inputType: "radio",
   topLevel: "sauce",
-  secondLevel: null,
+  secondLevel: "region",
   thirdLevel: null,
+  option1: "US-West",
+  option2: "EU-Central",
   required: true,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#region",
   status: "✅/❌"
 };
 
-const CCY = {
+const SauceCCY = {
   inputType: "input",
   topLevel: "sauce",
   secondLevel: "concurrency",
   thirdLevel: null,
-  required: true,
+  required: false,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#concurrency",
+  status: "✅/❌"
+};
+
+const TunnelName = {
+  inputType: "input",
+  topLevel: "sauce",
+  secondLevel: "tunnel",
+  thirdLevel: "name",
+  required: false,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#name",
+  status: "✅/❌"
+};
+
+const TunnelOwner = {
+  inputType: "input",
+  topLevel: "sauce",
+  secondLevel: "tunnel",
+  thirdLevel: "owner",
+  required: false,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#owner",
+  status: "✅/❌"
+};
+
+const SuiteName = {
+  inputType: "input",
+  topLevel: "sauce",
+  secondLevel: "tunnel",
+  thirdLevel: "owner",
+  required: true,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#owner",
+  status: "✅/❌"
+};
+
+const SuiteWorkload = {
+  inputType: "radio",
+  topLevel: "suites",
+  secondLevel: "workload",
+  thirdLevel: null,
+  option1: "webdriver",
+  option2: "other",
+  required: true,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#workload",
+  status: "✅/❌"
+};
+
+const SuiteResourceProfile = {
+  inputType: "radio",
+  topLevel: "suites",
+  secondLevel: "resourceProfile",
+  thirdLevel: null,
+  option1: "c1m1",
+  option2: "c2m2",
+  required: false,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#workload",
   status: "✅/❌"
 };
 
@@ -27,7 +83,7 @@ class InputPanel extends Component {
 
   render() {
 
-    const { regionData, ccyData, onFormChange } = this.props;
+    //const { regionData, ccyData, onFormChange } = this.props;
 
     return (
       <div className="input-panel-wrapper">
@@ -39,15 +95,42 @@ class InputPanel extends Component {
           </div>
           <div className="input-data-container">
             <InputMolecule
-              {...Region}
-              regionData={regionData}
-              onFormChange={onFormChange}
+              name="input1"
+              {...SauceRegion}
+              inputData={this.props.regionOption}
+              handleRadioChange={this.props.handleRadioChange}
             />
             <InputMolecule
-              {...CCY}
-              ccyData={ccyData}
-              onFormChange={onFormChange}
+              name="input2"
+              {...SauceCCY}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.handleFormChange}
             />
+            {/* 
+            <InputMolecule
+              name="input3"
+              {...TunnelName}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input4"
+              {...TunnelOwner}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input5"
+              {...SuiteName}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input6"
+              {...SuiteWorkload}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />*/}
           </div>
         </div>
       </div>
