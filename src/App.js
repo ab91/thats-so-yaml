@@ -6,7 +6,7 @@ import OutputPanel from "./components/organisms/OutputPanel";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    // Initial state in the parent component
+
     this.state = {
       regionData: '',
       ccyData: '',

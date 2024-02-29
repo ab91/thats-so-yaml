@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import innerText from 'react-innertext';
 
 import ProducedYAML from '../atoms/ProducedYAML';
 
@@ -11,7 +10,7 @@ class OutputPanel extends Component {
 
     const { regionData, ccyData } = this.props;
 
-    var codeString =
+    var yamlString =
       `
       apiVersion: v1alpha
       kind: imagerunner
@@ -50,13 +49,13 @@ class OutputPanel extends Component {
           webhookURL:
       ` ;
 
-    var string = innerText(<ProducedYAML condition1={true} />)
-
     return (
       <div className="output-panel">
         <div className="output-panel__code-block">
-          <SyntaxHighlighter language="yaml" style={tomorrowNightEighties}>
-            {codeString}
+          <SyntaxHighlighter
+            language="yaml"
+            style={tomorrowNightEighties}>
+            {yamlString}
           </SyntaxHighlighter>
         </div>
       </div>
