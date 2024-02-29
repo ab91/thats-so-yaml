@@ -104,7 +104,8 @@ body {
                         }
 
                         &__subtitle {
-                            margin: 0;
+                            margin-top: 0;
+                            margin-bottom: 10px;
                             font-size: 14px;
                             font-style: italic;
                             color: gray;
@@ -113,6 +114,7 @@ body {
                         &__data {}
 
                         &__status {
+                            margin-top: 10px;
                             margin-bottom: 0;
                             font-size: 20px;
                             text-align: center;
