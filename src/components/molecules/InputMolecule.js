@@ -5,9 +5,9 @@ class InputMolecule extends Component {
     render() {
 
         return (
-            <div className="input-container input-border-gradient input-border-gradient--green">
+            <div className="input-container input-border-gradient">
                 <p className="input__prompt">{this.props.prompt}</p>
-                <p className="input__detail">{this.props.required ? ("required") : ("optional")}, <a target="_blank" href={this.props.documentation} rel="noreferrer">docs</a></p>
+                <p className="input__detail">{this.props.required ? (<span style={{ color: 'red' }}>required</span>) : ("optional")} / <a target="_blank" href={this.props.documentation} rel="noreferrer">docs</a></p>
                 <p className="input__location">[{this.props.topLevel}
                     {this.props.secondLevel && <span> → {this.props.secondLevel}</span>}
                     {this.props.thirdLevel && <span> → {this.props.thirdLevel}</span>}]

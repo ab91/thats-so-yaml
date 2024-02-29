@@ -111,7 +111,7 @@ const SuiteImageToken = {
 
 const SuiteEntrypoint = {
   inputType: "input",
-  prompt: "What command is run to execute your tests?",
+  prompt: "What command is used to run your tests?",
   topLevel: "suites",
   secondLevel: "entrypoint",
   thirdLevel: null,
@@ -123,7 +123,6 @@ class InputPanel extends Component {
 
   render() {
 
-    //const { regionData, ccyData, handleFormChange } = this.props;
     const { regionOption, ccyData,
       tunnelNameData,
       tunnelOwnerData,
