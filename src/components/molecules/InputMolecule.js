@@ -1,6 +1,21 @@
-import React from "react";
+import React, { useState } from "react";
 
 const InputMolecule = (props) => {
+
+    const [error, setError] = useState('');
+
+    const handleBlur = () => {
+        if (props.required && !props.inputData.trim()) {
+            setError('Value required!');
+        } else {
+            setError('');
+        }
+    };
+
+    const handleFocus = () => {
+        setError('');
+    };
+
 
     return (
         <div className="input-container input-border-gradient">
@@ -17,6 +32,8 @@ const InputMolecule = (props) => {
                         type="input"
                         value={props.inputData}
                         onChange={props.handleFormChange}
+                        onBlur={handleBlur}
+                        onFocus={handleFocus}
                     />
                 )}
                 {(props.inputType === "radio" &&
@@ -44,6 +61,9 @@ const InputMolecule = (props) => {
                     </div>
                 )}
             </form>
+            <label className="input__error">
+                {error}
+            </label>
         </div >
     );
 }

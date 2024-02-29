@@ -107,7 +107,9 @@ body {
                             color: gray;
                         }
 
-                        &__data {}
+                        &__data {
+                            margin-bottom: 5px;
+                        }
 
                         &__radio {
                             display: flex;
@@ -119,11 +121,9 @@ body {
                             }
                         }
 
-                        &__status {
-                            margin-top: 10px;
-                            margin-bottom: 0;
-                            font-size: 20px;
-                            text-align: center;
+                        &__error {
+                            font-family: "DM Mono";
+                            color: red;
                         }
                     }
                 }
