@@ -10,7 +10,7 @@ class App extends React.Component {
     this.state = {
       regionOption: 'option1',
       ccyData: '',
-      tunnelName: ''
+      tunnelNameData: ''
     };
   }
 
@@ -25,7 +25,6 @@ class App extends React.Component {
       ccyData: newData,
     });
   };
-
 
   render() {
     return (

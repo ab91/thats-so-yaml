@@ -25,7 +25,6 @@ const SauceCCY = {
   status: "✅/❌"
 };
 
-/*
 const TunnelName = {
   inputType: "input",
   topLevel: "sauce",
@@ -68,7 +67,7 @@ const SuiteWorkload = {
   status: "✅/❌"
 };
 
-const SuiteResourceProfile = {
+const SuiteResource = {
   inputType: "radio",
   topLevel: "suites",
   secondLevel: "resourceProfile",
@@ -110,7 +109,6 @@ const SuiteImageToken = {
   status: "✅/❌"
 };
 
-*/
 class InputPanel extends Component {
 
   render() {
@@ -138,13 +136,13 @@ class InputPanel extends Component {
               inputData={this.props.ccyData}
               onFormChange={this.props.handleFormChange}
             />
-            {/* 
             <InputMolecule
               name="input3"
               {...TunnelName}
-              inputData={this.props.ccyData}
+              inputData={this.props.tunnelNameData}
               onFormChange={this.props.onFormChange}
             />
+            {/*
             <InputMolecule
               name="input4"
               {...TunnelOwner}
@@ -186,7 +184,7 @@ class InputPanel extends Component {
               {...SuiteImageToken}
               inputData={this.props.ccyData}
               onFormChange={this.props.onFormChange}
-            />
+            /> 
             <InputMolecule
               name="input11"
               {...SuiteFileSrc}
@@ -205,8 +203,6 @@ class InputPanel extends Component {
               inputData={this.props.ccyData}
               onFormChange={this.props.onFormChange}
             />
-
-
             */}
           </div>
         </div>
