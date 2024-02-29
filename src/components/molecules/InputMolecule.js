@@ -6,17 +6,19 @@ class InputMolecule extends Component {
 
         return (
             <div className="input-container input-border-gradient input-border-gradient--green">
-                <p className="input__title">{this.props.topLevel}
+                <p className="input__prompt">{this.props.prompt}</p>
+                <p className="input__detail">{this.props.required ? ("required") : ("optional")}, <a target="_blank" href={this.props.documentation} rel="noreferrer">docs</a></p>
+                <p className="input__location">[{this.props.topLevel}
                     {this.props.secondLevel && <span> → {this.props.secondLevel}</span>}
-                    {this.props.thirdLevel && <span> → {this.props.thirdLevel}</span>}
+                    {this.props.thirdLevel && <span> → {this.props.thirdLevel}</span>}]
                 </p>
-                <p className="input__subtitle">{this.props.required ? ("required") : ("optional")} - <a target="_blank" href={this.props.documentation} rel="noreferrer">docs</a></p>
                 <form className="input__data">
                     {(this.props.inputType === "input" &&
                         <input
+                            name={this.props.name}
                             type="input"
                             value={this.props.inputData}
-                            onChange={(e) => this.props.onFormChange(e.target.value)}
+                            onChange={this.props.handleFormChange}
                         />
                     )}
                     {(this.props.inputType === "radio" &&
@@ -24,27 +26,26 @@ class InputMolecule extends Component {
                             <label>
                                 <input
                                     type="radio"
-                                    name="myRadio"
+                                    name={this.props.name}
                                     value="option1"
                                     checked={this.props.inputData === 'option1'}
-                                    onChange={this.props.handleRadioChange}
+                                    onChange={this.props.handleFormChange}
                                 />
                                 {this.props.option1}
                             </label>
                             <label>
                                 <input
                                     type="radio"
-                                    name="myRadio"
+                                    name={this.props.name}
                                     value="option2"
                                     checked={this.props.inputData === 'option2'}
-                                    onChange={this.props.handleRadioChange}
+                                    onChange={this.props.handleFormChange}
                                 />
                                 {this.props.option2}
                             </label>
                         </div>
                     )}
                 </form>
-                {/*<p className="input__status">{this.props.status}</p>*/}
             </div >
         );
     }

@@ -6,7 +6,19 @@ class OutputPanel extends Component {
 
   render() {
 
-    const { regionOption, ccyData } = this.props;
+    const {
+      regionOption,
+      ccyData,
+      tunnelNameData,
+      suiteNameData,
+      suiteWorkloadData,
+      tunnelOwnerData,
+      suiteResourceData,
+      suiteImageData,
+      suiteUserData,
+      suiteTokenData,
+      suiteEntrypointData
+    } = this.props;
 
     var yamlString =
       `
@@ -16,17 +28,17 @@ class OutputPanel extends Component {
     region: ${(regionOption === 'option1') ? 'US-West' : 'EU-Central'}
     concurrency: ${ccyData}
     tunnel:
-      name:
-      owner:
+      name: "${tunnelNameData}"
+      owner: ${tunnelOwnerData}
   suites:
-    - name:
-      workload:
-      resourceProfile:
-      *image:
+    - name: ${suiteNameData}
+      workload: ${(suiteWorkloadData === 'option1') ? 'webdriver' : 'other'}
+      resourceProfile: ${(suiteResourceData === 'option1') ? 'c1m1' : 'c2m2'}
+      image: ${suiteImageData}
       imagePullAuth:
-        user:
-        token:
-      *entrypoint:
+        user: ${suiteUserData}
+        token: ${suiteTokenData}
+      entrypoint: ${suiteEntrypointData}
       files: 
         - src:
         - dst:

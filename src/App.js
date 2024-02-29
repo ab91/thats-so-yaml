@@ -10,33 +10,70 @@ class App extends React.Component {
     this.state = {
       regionOption: 'option1',
       ccyData: '',
-      tunnelNameData: ''
+      tunnelNameData: '',
+      tunnelOwnerData: '',
+      suiteNameData: '',
+      suiteWorkloadData: 'option1',
+      suiteResourceData: 'option1',
+      suiteImageData: '',
+      suiteUserData: '',
+      suiteTokenData: '',
+      suiteEntrypointData: ''
     };
   }
 
-  handleRadioChange = (event) => {
-    this.setState({
-      regionOption: event.target.value,
-    });
-  };
+  handleFormChange = (event) => {
+    const { name, value } = event.target;
 
-  handleFormChange = (newData) => {
     this.setState({
-      ccyData: newData,
-    });
+      [name]: value
+    })
   };
 
   render() {
+    const { 
+      regionOption, 
+      ccyData,
+      tunnelNameData,
+      tunnelOwnerData,
+      suiteNameData,
+      suiteWorkloadData,
+      suiteResourceData,
+      suiteImageData,
+      suiteUserData,
+      suiteTokenData,
+      suiteEntrypointData
+    } = this.state;
+
     return (
       <div className="panel-container">
         <InputPanel
-          regionOption={this.state.regionOption}
-          handleRadioChange={this.handleRadioChange}
+          regionOption={regionOption}
+          ccyData={ccyData}
+          tunnelNameData={tunnelNameData}
+          tunnelOwnerData={tunnelOwnerData}
+          suiteNameData={suiteNameData}
+          suiteWorkloadData={suiteWorkloadData}
+          suiteResourceData={suiteResourceData}
+          suiteImageData={suiteImageData}
+          suiteUserData={suiteUserData}
+          suiteTokenData={suiteTokenData}
+          suiteEntrypointData={suiteEntrypointData}
+
           handleFormChange={this.handleFormChange}
         />
         <OutputPanel
-          regionOption={this.state.regionOption}
-          ccyData={this.state.ccyData}
+          regionOption={regionOption}
+          ccyData={ccyData}
+          tunnelNameData={tunnelNameData}
+          tunnelOwnerData={tunnelOwnerData}
+          suiteNameData={suiteNameData}
+          suiteWorkloadData={suiteWorkloadData}
+          suiteResourceData={suiteResourceData}
+          suiteImageData={suiteImageData}
+          suiteUserData={suiteUserData}
+          suiteTokenData={suiteTokenData}
+          suiteEntrypointData={suiteEntrypointData}
         />
       </div>
     );

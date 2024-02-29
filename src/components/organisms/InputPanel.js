@@ -5,6 +5,7 @@ import InputMolecule from "../molecules/InputMolecule";
 
 const SauceRegion = {
   inputType: "radio",
+  prompt: "Which data center are you using?",
   topLevel: "sauce",
   secondLevel: "region",
   thirdLevel: null,
@@ -12,51 +13,51 @@ const SauceRegion = {
   option2: "EU-Central",
   required: true,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#region",
-  status: "✅/❌"
 };
 
 const SauceCCY = {
   inputType: "input",
+  prompt: "How many tests are trying to run at once?",
   topLevel: "sauce",
   secondLevel: "concurrency",
   thirdLevel: null,
   required: false,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#concurrency",
-  status: "✅/❌"
 };
 
 const TunnelName = {
   inputType: "input",
+  prompt: "If you're using a Sauce Connect tunnel, what is its name?",
   topLevel: "sauce",
   secondLevel: "tunnel",
   thirdLevel: "name",
   required: false,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#name",
-  status: "✅/❌"
 };
 
 const TunnelOwner = {
   inputType: "input",
+  prompt: "If you're using a Sauce Connect tunnel, who is its owner?",
   topLevel: "sauce",
   secondLevel: "tunnel",
   thirdLevel: "owner",
   required: false,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#owner",
-  status: "✅/❌"
 };
 
 const SuiteName = {
   inputType: "input",
+  prompt: "What would you like to name your test suite?",
   topLevel: "sauce",
   secondLevel: "tunnel",
   thirdLevel: "owner",
   required: true,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#owner",
-  status: "✅/❌"
 };
 
 const SuiteWorkload = {
   inputType: "radio",
+  prompt: "What kind of entrypoint process you are running?",
   topLevel: "suites",
   secondLevel: "workload",
   thirdLevel: null,
@@ -64,11 +65,11 @@ const SuiteWorkload = {
   option2: "other",
   required: true,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#workload",
-  status: "✅/❌"
 };
 
 const SuiteResource = {
   inputType: "radio",
+  prompt: "Select an option to set the CPU and memory limits for the container.",
   topLevel: "suites",
   secondLevel: "resourceProfile",
   thirdLevel: null,
@@ -76,44 +77,65 @@ const SuiteResource = {
   option2: "c2m2",
   required: false,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#workload",
-  status: "✅/❌"
 };
 
 const SuiteImage = {
   inputType: "input",
+  prompt: "Where is your image located?",
   topLevel: "suites",
   secondLevel: "image",
   thirdLevel: null,
   required: true,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#image",
-  status: "✅/❌"
 };
 
 const SuiteImageUser = {
   inputType: "input",
+  prompt: "If your registry is private, what is your username",
   topLevel: "suites",
   secondLevel: "imagePullAuth",
   thirdLevel: "user",
   required: false,
   documentation: "hhttps://docs.saucelabs.com/orchestrate/saucectl-configuration/#imagepullauth",
-  status: "✅/❌"
 };
 
 const SuiteImageToken = {
   inputType: "input",
+  prompt: "[DO NOT USE]",
   topLevel: "suites",
   secondLevel: "imagePullAuth",
   thirdLevel: "token",
   required: false,
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#imagepullauth",
-  status: "✅/❌"
+};
+
+const SuiteEntrypoint = {
+  inputType: "input",
+  prompt: "What command is run to execute your tests?",
+  topLevel: "suites",
+  secondLevel: "entrypoint",
+  thirdLevel: null,
+  required: true,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#entrypoint",
 };
 
 class InputPanel extends Component {
 
   render() {
 
-    //const { regionData, ccyData, onFormChange } = this.props;
+    //const { regionData, ccyData, handleFormChange } = this.props;
+    const { regionOption, ccyData,
+      tunnelNameData,
+      tunnelOwnerData,
+      suiteNameData,
+      suiteWorkloadData,
+      suiteResourceData,
+      suiteImageData,
+      suiteUserData,
+      suiteTokenData,
+      suiteEntrypointData,
+      handleFormChange
+    } = this.props;
 
     return (
       <div className="input-panel-wrapper">
@@ -121,87 +143,93 @@ class InputPanel extends Component {
           <div className="input-panel-text">
             <h1 className="input-panel-text__title">That’s SO YAML 👁🔮</h1>
             <h2 className="input-panel-text__subtitle">Sauce Orchestrate YAML Config Generator</h2>
-            <h3 className="input-panel-text__description">Sauce Orchestrate tests are kicked off via CLI tool <a target="_blank" href="https://docs.saucelabs.com/dev/cli/saucectl/" rel="noreferrer">saucectl</a>. saucectl commands can be executed manually or automatically by your CI/CD system, and references a <a target="_blank" href="https://docs.saucelabs.com/orchestrate/saucectl-configuration/" rel="noreferrer">YAML file</a> in your repo which instructs Sauce Labs infrastructure how to run your tests. Use this app to interactively create a custom YAML for your test suite.</h3>
+            <h3 className="input-panel-text__description">Sauce Orchestrate tests can be triggered via CLI tool <a target="_blank" href="https://docs.saucelabs.com/dev/cli/saucectl/" rel="noreferrer">saucectl</a>. saucectl commands can be executed manually or automatically by your CI/CD system, and references a <a target="_blank" href="https://docs.saucelabs.com/orchestrate/saucectl-configuration/" rel="noreferrer">YAML file</a> in your repo which instructs Sauce Labs infrastructure on how to run your tests. <br/><br/>Use this app to build a custom YAML for your test suite.</h3>
           </div>
           <div className="input-data-container">
             <InputMolecule
-              name="input1"
+              name="regionOption"
               {...SauceRegion}
-              inputData={this.props.regionOption}
-              handleRadioChange={this.props.handleRadioChange}
+              inputData={regionOption}
+              handleFormChange={handleFormChange}
             />
             <InputMolecule
-              name="input2"
+              name="ccyData"
               {...SauceCCY}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.handleFormChange}
+              inputData={ccyData}
+              handleFormChange={handleFormChange}
             />
             <InputMolecule
-              name="input3"
+              name="tunnelNameData"
               {...TunnelName}
-              inputData={this.props.tunnelNameData}
-              onFormChange={this.props.onFormChange}
+              inputData={tunnelNameData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="tunnelOwnerData"
+              {...TunnelOwner}
+              inputData={tunnelOwnerData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="suiteNameData"
+              {...SuiteName}
+              inputData={suiteNameData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="suiteWorkloadData"
+              {...SuiteWorkload}
+              inputData={suiteWorkloadData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="suiteResourceData"
+              {...SuiteResource}
+              inputData={suiteResourceData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="suiteImageData"
+              {...SuiteImage}
+              inputData={suiteImageData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="suiteUserData"
+              {...SuiteImageUser}
+              inputData={suiteUserData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="suiteTokenData"
+              {...SuiteImageToken}
+              inputData={suiteTokenData}
+              handleFormChange={handleFormChange}
+            />
+            <InputMolecule
+              name="suiteEntrypointData"
+              {...SuiteEntrypoint}
+              inputData={suiteEntrypointData}
+              handleFormChange={handleFormChange}
             />
             {/*
             <InputMolecule
-              name="input4"
-              {...TunnelOwner}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
-            />
-            <InputMolecule
-              name="input5"
-              {...SuiteName}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
-            />
-            <InputMolecule
-              name="input6"
-              {...SuiteWorkload}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
-            />
-            <InputMolecule
-              name="input7"
-              {...SuiteResource}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
-            />
-            <InputMolecule
-              name="input8"
-              {...SuiteImage}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
-            />
-            <InputMolecule
-              name="input9"
-              {...SuiteImageUser}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
-            />
-            <InputMolecule
-              name="input10"
-              {...SuiteImageToken}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
-            /> 
-            <InputMolecule
               name="input11"
               {...SuiteFileSrc}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
+              inputData={ccyData}
+              handleFormChange={handleFormChange}
             />
             <InputMolecule
               name="input12"
               {...SuiteFileDst}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
+              inputData={ccyData}
+              handleFormChange={handleFormChange}
             />
             <InputMolecule
               name="input13"
               {...SuiteEnvKey}
-              inputData={this.props.ccyData}
-              onFormChange={this.props.onFormChange}
+              inputData={ccyData}
+              handleFormChange={handleFormChange}
             />
             */}
           </div>

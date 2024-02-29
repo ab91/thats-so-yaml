@@ -1,13 +1,7 @@
-/* * {
-    border: 1px solid black;
-}*/
-
 // Import Google Font
-
 @import url('https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
 
 // Page styling 
-
 body {
     display: flex;
     flex-direction: column;
@@ -78,19 +72,16 @@ body {
                 flex-wrap: wrap;
                 justify-content: space-around;
 
-                /*border: 1px solid black;*/
-
                 .input-container {
-                    flex: 1 1 50%;
+                    flex: 1 1 100%;
                     padding: 15px;
-                    max-width: 40%;
                     margin-bottom: 10px;
 
                     border: 1px solid black;
 
                     &.input-border-gradient {
                         border-style: solid;
-                        border-width: 5px;
+                        border-width: 1px;
                         border-image-slice: 1;
 
 
@@ -100,17 +91,22 @@ body {
                     }
 
                     .input {
-                        &__title {
+                        &__prompt {
+                            margin: 0 0 5px 0;
+                            font-size: 23px;
+                            line-height: 1.2;
+                        }
+
+                        &__detail {
                             margin: 0;
-                            font-size: 20px;
+                            font-size: 14px;
+                            font-style: italic;
                             color: gray;
                         }
 
-                        &__subtitle {
-                            margin-top: 0;
-                            margin-bottom: 10px;
+                        &__location {
+                            margin: 0 0 10px 0;
                             font-size: 14px;
-                            font-style: italic;
                             color: gray;
                         }
 
@@ -145,11 +141,17 @@ body {
         justify-content: center;
 
         &__code-block {
-            position: relative;
-            top: 99px;
-            width: 90%;
-
+            position: fixed;
+            top: 30px;
+            width: 45%;
             font-size: 15px;
+
+            @media (max-width: 1200px) {
+                position: static;
+                top: 0;
+                width: 80%;
+            }
+
 
             pre {
                 height: 700px;
