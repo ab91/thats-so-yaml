@@ -79,6 +79,37 @@ const SuiteResourceProfile = {
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#workload",
   status: "✅/❌"
 };
+
+const SuiteImage = {
+  inputType: "input",
+  topLevel: "suites",
+  secondLevel: "image",
+  thirdLevel: null,
+  required: true,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#image",
+  status: "✅/❌"
+};
+
+const SuiteImageUser = {
+  inputType: "input",
+  topLevel: "suites",
+  secondLevel: "imagePullAuth",
+  thirdLevel: "user",
+  required: false,
+  documentation: "hhttps://docs.saucelabs.com/orchestrate/saucectl-configuration/#imagepullauth",
+  status: "✅/❌"
+};
+
+const SuiteImageToken = {
+  inputType: "input",
+  topLevel: "suites",
+  secondLevel: "imagePullAuth",
+  thirdLevel: "token",
+  required: false,
+  documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#imagepullauth",
+  status: "✅/❌"
+};
+
 */
 class InputPanel extends Component {
 
@@ -131,7 +162,52 @@ class InputPanel extends Component {
               {...SuiteWorkload}
               inputData={this.props.ccyData}
               onFormChange={this.props.onFormChange}
-            />*/}
+            />
+            <InputMolecule
+              name="input7"
+              {...SuiteResource}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input8"
+              {...SuiteImage}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input9"
+              {...SuiteImageUser}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input10"
+              {...SuiteImageToken}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input11"
+              {...SuiteFileSrc}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input12"
+              {...SuiteFileDst}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+            <InputMolecule
+              name="input13"
+              {...SuiteEnvKey}
+              inputData={this.props.ccyData}
+              onFormChange={this.props.onFormChange}
+            />
+
+
+            */}
           </div>
         </div>
       </div>
