@@ -2,8 +2,6 @@ import React, { Component } from "react";
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-import ProducedYAML from '../atoms/ProducedYAML';
-
 class OutputPanel extends Component {
 
   render() {
@@ -15,7 +13,7 @@ class OutputPanel extends Component {
   apiVersion: v1alpha
   kind: imagerunner
   sauce:
-    region: ${(regionOption == 'option1') ? 'US-West' : 'EU-Central'}
+    region: ${(regionOption === 'option1') ? 'US-West' : 'EU-Central'}
     concurrency: ${ccyData}
     tunnel:
       name:

@@ -25,6 +25,7 @@ const SauceCCY = {
   status: "✅/❌"
 };
 
+/*
 const TunnelName = {
   inputType: "input",
   topLevel: "sauce",
@@ -78,7 +79,7 @@ const SuiteResourceProfile = {
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#workload",
   status: "✅/❌"
 };
-
+*/
 class InputPanel extends Component {
 
   render() {
