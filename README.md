@@ -4,8 +4,18 @@
 
 ## Demo (WIP)
 
-<p align="center">
-  <img src="https://placehold.co/800x600" alt="Placeholder Img"/>
-</p>
+View project at [https://sauceorchestrateyaml.netlify.app/](https://sauceorchestrateyaml.netlify.app/)
 
-View project at [#]()
+## Installation Instructions
+
+First install the necessary dependencies
+
+```bash
+npm install
+```
+
+Then run the start script
+
+```bash
+npm start
+```
