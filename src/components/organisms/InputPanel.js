@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import InputMolecule from "../molecules/InputMolecule";
 
-/* Can be refactored to functional component */
-
 const SauceRegion = {
   inputType: "radio",
   prompt: "Which data center are you using?",
@@ -119,99 +117,85 @@ const SuiteEntrypoint = {
   documentation: "https://docs.saucelabs.com/orchestrate/saucectl-configuration/#entrypoint",
 };
 
-class InputPanel extends Component {
+const InputPanel = (props) => {
 
-  render() {
 
-    const { regionOption, ccyData,
-      tunnelNameData,
-      tunnelOwnerData,
-      suiteNameData,
-      suiteWorkloadData,
-      suiteResourceData,
-      suiteImageData,
-      suiteUserData,
-      suiteTokenData,
-      suiteEntrypointData,
-      handleFormChange
-    } = this.props;
-
-    return (
-      <div className="input-panel-wrapper">
-        <div className="input-panel-container">
-          <div className="input-panel-text">
-            <h1 className="input-panel-text__title">That’s SO YAML 👁🔮</h1>
-            <h2 className="input-panel-text__subtitle">Sauce Orchestrate YAML Config Generator</h2>
-            <h3 className="input-panel-text__description">Sauce Orchestrate tests can be triggered via CLI tool <a target="_blank" href="https://docs.saucelabs.com/dev/cli/saucectl/" rel="noreferrer">saucectl</a>. saucectl commands can be executed manually or automatically by your CI/CD system, and references a <a target="_blank" href="https://docs.saucelabs.com/orchestrate/saucectl-configuration/" rel="noreferrer">YAML file</a> in your repo which instructs Sauce Labs infrastructure on how to run your tests. <br/><br/>Use this app to build a custom YAML for your test suite.</h3>
-          </div>
-          <div className="input-data-container">
-            <InputMolecule
-              name="regionOption"
-              {...SauceRegion}
-              inputData={regionOption}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="ccyData"
-              {...SauceCCY}
-              inputData={ccyData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="tunnelNameData"
-              {...TunnelName}
-              inputData={tunnelNameData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="tunnelOwnerData"
-              {...TunnelOwner}
-              inputData={tunnelOwnerData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="suiteNameData"
-              {...SuiteName}
-              inputData={suiteNameData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="suiteWorkloadData"
-              {...SuiteWorkload}
-              inputData={suiteWorkloadData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="suiteResourceData"
-              {...SuiteResource}
-              inputData={suiteResourceData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="suiteImageData"
-              {...SuiteImage}
-              inputData={suiteImageData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="suiteUserData"
-              {...SuiteImageUser}
-              inputData={suiteUserData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="suiteTokenData"
-              {...SuiteImageToken}
-              inputData={suiteTokenData}
-              handleFormChange={handleFormChange}
-            />
-            <InputMolecule
-              name="suiteEntrypointData"
-              {...SuiteEntrypoint}
-              inputData={suiteEntrypointData}
-              handleFormChange={handleFormChange}
-            />
-            {/*
+  return (
+    <div className="input-panel-wrapper">
+      <div className="input-panel-container">
+        <div className="input-panel-text">
+          <h1 className="input-panel-text__title">That’s SO YAML 👁🔮</h1>
+          <h2 className="input-panel-text__subtitle">Sauce Orchestrate YAML Config Generator</h2>
+          <h3 className="input-panel-text__description">Sauce Orchestrate tests can be triggered via CLI tool <a target="_blank" href="https://docs.saucelabs.com/dev/cli/saucectl/" rel="noreferrer">saucectl</a>. saucectl commands can be executed manually or automatically by your CI/CD system, and references a <a target="_blank" href="https://docs.saucelabs.com/orchestrate/saucectl-configuration/" rel="noreferrer">YAML file</a> in your repo which instructs Sauce Labs infrastructure on how to run your tests. <br /><br />Use this app to build a custom YAML for your test suite.</h3>
+        </div>
+        <div className="input-data-container">
+          <InputMolecule
+            name="regionOption"
+            {...SauceRegion}
+            inputData={props.regionOption}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="ccyData"
+            {...SauceCCY}
+            inputData={props.ccyData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="tunnelNameData"
+            {...TunnelName}
+            inputData={props.tunnelNameData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="tunnelOwnerData"
+            {...TunnelOwner}
+            inputData={props.tunnelOwnerData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="suiteNameData"
+            {...SuiteName}
+            inputData={props.suiteNameData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="suiteWorkloadData"
+            {...SuiteWorkload}
+            inputData={props.suiteWorkloadData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="suiteResourceData"
+            {...SuiteResource}
+            inputData={props.suiteResourceData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="suiteImageData"
+            {...SuiteImage}
+            inputData={props.suiteImageData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="suiteUserData"
+            {...SuiteImageUser}
+            inputData={props.suiteUserData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="suiteTokenData"
+            {...SuiteImageToken}
+            inputData={props.suiteTokenData}
+            handleFormChange={props.handleFormChange}
+          />
+          <InputMolecule
+            name="suiteEntrypointData"
+            {...SuiteEntrypoint}
+            inputData={props.suiteEntrypointData}
+            handleFormChange={props.handleFormChange}
+          />
+          {/*
             <InputMolecule
               name="input11"
               {...SuiteFileSrc}
@@ -231,11 +215,10 @@ class InputPanel extends Component {
               handleFormChange={handleFormChange}
             />
             */}
-          </div>
         </div>
       </div>
-    );
-  }
+    </div>
+  );
 }
 
 export default InputPanel;
