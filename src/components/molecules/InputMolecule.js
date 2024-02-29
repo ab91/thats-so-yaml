@@ -6,7 +6,7 @@ const InputMolecule = (props) => {
 
     const handleBlur = () => {
         if (props.required && !props.inputData.trim()) {
-            setError('Value required!');
+            setError('Please supply a value');
         } else {
             setError('');
         }
