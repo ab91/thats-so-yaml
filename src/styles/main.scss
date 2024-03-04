@@ -140,6 +140,11 @@ body {
         .output-logo {
             position: fixed;
             top: 10px;
+
+            @media (max-width: 1200px) {
+                top: 4px;
+            }
+
         }
 
         &__code-block {
