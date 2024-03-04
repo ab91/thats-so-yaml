@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { tomorrowNightEighties } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
@@ -61,6 +63,7 @@ class OutputPanel extends Component {
 
     return (
       <div className="output-panel">
+        <a className="output-logo" href="https://github.com/ab91/thats-so-yaml" target="_blank" rel="noreferrer"><FontAwesomeIcon icon={faGithub} style={{ fontSize: '1.75em', color: '#333' }} /></a>
         <div className="output-panel__code-block">
           <SyntaxHighlighter
             language="yaml"
