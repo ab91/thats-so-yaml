@@ -24,3 +24,7 @@ Then run the start script
 ```bash
 npm start
 ```
+## Known Issues
+
+- [ ] Input validation shares state, resulting in "Please supply a value" error message across all inputs
+- [ ] App can display maximum of 2 radio options
