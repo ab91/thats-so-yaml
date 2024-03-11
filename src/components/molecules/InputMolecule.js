@@ -16,7 +16,6 @@ const InputMolecule = (props) => {
         setError('');
     };
 
-
     return (
         <div className="input-container input-border-gradient">
             <p className="input__prompt">{props.prompt}</p>
