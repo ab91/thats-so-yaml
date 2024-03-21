@@ -28,6 +28,7 @@ npm start
 
 - [ ] Input validation shares state, resulting in "Please supply a value" error message across all inputs
 - [ ] App can display maximum of 2 radio options
+- [ ] GitHub logo hastily added to the site, needs proper markup + CSS treatment
 
 ## Areas of improvement
 
