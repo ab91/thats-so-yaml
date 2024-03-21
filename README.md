@@ -28,3 +28,7 @@ npm start
 
 - [ ] Input validation shares state, resulting in "Please supply a value" error message across all inputs
 - [ ] App can display maximum of 2 radio options
+
+## Areas of improvement
+
+- [ ] Conditional rendering of YAML based on data that has been entered. All of the file should not be displayed if the values are missing.
